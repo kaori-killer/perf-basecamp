@@ -3848,7 +3848,7 @@ var gifAPIService_awaiter = (undefined && undefined.__awaiter) || function (this
     });
 };
 
-const API_KEY = "MISSING_ENV_VAR".GIPHY_API_KEY;
+const API_KEY = "3x7i5KnUOx8ECmy8tw6X1sZCyZpljUA6";
 if (!API_KEY) {
     throw new Error('GIPHY_API_KEY is not set in environment variables');
 }
