@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <script>
+      (function () {
+        // ⚠️ GitHub Pages에 배포한 repo 이름 (예: /perf-basecamp)
+        // User/Org 루트 페이지라면 ""(빈 문자열)로 두세요.
+        var repo = '/perf-basecamp';
+
+        var path = location.pathname.startsWith(repo)
+          ? location.pathname.slice(repo.length)
+          : location.pathname;
+
+        var search = location.search || '';
+        var hash = location.hash || '';
+
+        // index.html로 강제 리다이렉트하면서 원래 경로를 ?p= 로 넘김
+        var redirect = repo + '/?p=' + encodeURIComponent(path) + search + hash;
+        location.replace(redirect);
+      })();
+    </script>
+  </head>
+  <body>
+    Redirecting…
+  </body>
+</html>
