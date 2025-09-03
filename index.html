@@ -1,9 +1,18 @@
 <!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="icon" href="./public/favicon.ico"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/><title>memegle - gif search engine for you</title><script>(function () {
-        var params = new URLSearchParams(location.search);
-        var p = params.get('p');
-        if (p) {
-          // 원래 주소(/search 등)로 복원
-          var base = (location.origin + location.pathname).replace(/\/$/, '');
-          history.replaceState(null, '', base + p + location.hash);
-        }
+        // 현재 pathname에서 1번째 세그먼트를 base로 간주 (예: /perf-basecamp)
+        var segments = location.pathname.split('/').filter(Boolean);
+        var base = segments.length ? '/' + segments[0] : '';
+
+        // base를 제거한 "상대 경로"만 추출 (예: "/search")
+        var path = location.pathname.startsWith(base)
+          ? location.pathname.slice(base.length) || '/'
+          : location.pathname;
+
+        // 쿼리/해시 유지
+        var search = location.search || '';
+        var hash = location.hash || '';
+
+        // index.html로 우회 (베이스는 한 번만 사용)
+        var redirect = base + '/?p=' + encodeURIComponent(path) + search + hash;
+        location.replace(redirect);
       })();</script><script defer="defer" src="bundle.js"></script></head><body><div id="app"></div></body></html>
