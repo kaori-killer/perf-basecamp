@@ -1,1 +1,18 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="icon" href="./public/favicon.ico"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/><title>memegle - gif search engine for you</title><script defer="defer" src="bundle.js"></script></head><body><div id="app"></div></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="icon" href="./public/favicon.ico"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/><title>memegle - gif search engine for you</title><script defer="defer" src="bundle.js"></script></head><script>(function () {
+      var repo = 'kaori-killer.github.io/perf-basecamp/';
+
+      var path = location.pathname.replace(repo, '');
+      var search = location.search;
+      var hash = location.hash;
+
+      // index.html로 리다이렉트하면서 원래 경로를 ?p= 로 넘김
+      var redirect = repo + '/?p=' + encodeURIComponent(path) + search + hash;
+      location.replace(redirect);
+    })();</script><script>(function () {
+      var params = new URLSearchParams(location.search);
+      var p = params.get('p');
+      if (p) {
+        var newUrl = (location.origin + location.pathname).replace(/\/$/, '') + p + location.hash;
+        history.replaceState(null, '', newUrl);
+      }
+    })();</script><body><div id="app"></div></body></html>
