@@ -11,7 +11,7 @@ import './App.css';
 
 const App = () => {
   return (
-    <Router basename={'/perf-basecamp'}>
+    <Router basename={'/'}>
       <NavBar />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
