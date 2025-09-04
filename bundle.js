@@ -3880,19 +3880,12 @@ const fetchGifs = (url) => gifAPIService_awaiter(void 0, void 0, void 0, functio
 });
 const gifAPIService = {
     getTrending: () => gifAPIService_awaiter(void 0, void 0, void 0, function* () {
-        const cachedData = checkCache();
-        console.log('cachedData:', cachedData);
-        if (cachedData) {
-            return cachedData;
-        }
         const url = apiClient.appendSearchParams(new URL(`${BASE_URL}/trending`), {
             api_key: API_KEY,
             limit: `${DEFAULT_FETCH_COUNT}`,
             rating: 'g'
         });
-        const data = yield fetchGifs(url);
-        setCache(data);
-        return data;
+        return fetchGifs(url);
     }),
     searchByKeyword: (keyword, page) => gifAPIService_awaiter(void 0, void 0, void 0, function* () {
         const url = apiClient.appendSearchParams(new URL(`${BASE_URL}/search`), {
@@ -3905,25 +3898,6 @@ const gifAPIService = {
         });
         return fetchGifs(url);
     })
-};
-const CACHE_KEY = 'giphy:trending';
-const STALE_TIME = 1000 * 60 * 60 * 12;
-const checkCache = () => {
-    const cached = localStorage.getItem(CACHE_KEY);
-    if (cached) {
-        const { data, fetchedAt } = JSON.parse(cached);
-        if (Date.now() - fetchedAt < STALE_TIME) {
-            return data;
-        }
-    }
-    return null;
-};
-const setCache = (data) => {
-    const cacheData = {
-        data,
-        fetchedAt: Date.now()
-    };
-    localStorage.setItem(CACHE_KEY, JSON.stringify(cacheData));
 };
 
 ;// CONCATENATED MODULE: ./src/pages/Search/hooks/useGifSearch.tsx
@@ -7116,7 +7090,6 @@ var App_update = injectStylesIntoStyleTag_default()(App/* default */.A, App_opti
 
 
 const App_App = () => {
-    console.log('App rendered');
     return ((0,jsx_runtime.jsxs)(BrowserRouter, Object.assign({ basename: '/perf-basecamp' }, { children: [(0,jsx_runtime.jsx)(NavBar_NavBar, {}), (0,jsx_runtime.jsxs)(Routes, { children: [(0,jsx_runtime.jsx)(Route, { path: "/", element: (0,jsx_runtime.jsx)(Home_Home, {}) }), (0,jsx_runtime.jsx)(Route, { path: "/search", element: (0,jsx_runtime.jsx)(Search_Search, {}) })] }), (0,jsx_runtime.jsx)(Footer_Footer, {})] })));
 };
 /* harmony default export */ const src_App_0 = (App_App);
