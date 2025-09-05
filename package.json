@@ -75,5 +75,9 @@
   },
   "sideEffects": [
     "*.css"
-  ]
+  ],
+  "output": {
+    "directory": "dist",
+    "publicPath": "/perf-basecamp/"
+  }
 }
