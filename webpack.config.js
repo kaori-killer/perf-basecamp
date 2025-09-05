@@ -12,7 +12,6 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, '/dist'),
-    publicPath: '/perf-basecamp/',
     clean: true
   },
   devServer: {
