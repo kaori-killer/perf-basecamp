@@ -73,5 +73,7 @@
       "@babel/plugin-transform-runtime"
     ]
   },
-  "sideEffects": false
+  "sideEffects": [
+    "*.css"
+  ]
 }
