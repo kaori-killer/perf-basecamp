@@ -17,4 +17,5 @@ const GifItem = ({ imageUrl = '', title = '' }: GifItemProps) => {
   );
 };
 
+GifItem.displayName = 'GifItem';
 export default React.memo(GifItem);
